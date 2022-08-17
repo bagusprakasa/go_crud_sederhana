@@ -12,3 +12,13 @@ type User struct {
 	CreatedAt time.Time `gorm:"default:CURRENT_TIMESTAMP" json:"created_at"`
 	UpdatedAt time.Time `gorm:"default:CURRENT_TIMESTAMP" json:"updated_at"`
 }
+
+func FormatUser(user User) User {
+	userFormat := User{}
+	userFormat.ID = user.ID
+	userFormat.Name = user.Name
+	userFormat.Gender = user.Gender
+	userFormat.Level = user.Level
+
+	return userFormat
+}
